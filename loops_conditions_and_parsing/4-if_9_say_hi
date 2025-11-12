@@ -2,8 +2,9 @@
 #This script for showing how to works while
 count=1
 while [[ $count -le 10 ]]; do
-	if [[ $count -eq 9 ]]; then
+	if [[ $count -eq 10 ]]; then
 		echo "Hi"
+		echo "Best School"
 	else
 	 	echo "Best School"	
 	fi
