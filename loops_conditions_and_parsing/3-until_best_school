@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#This script show 10 times Best School using until
+count=1
+until [ $count -gt 10 ]; do
+  	echo "Best School"
+  	((count++))
+done

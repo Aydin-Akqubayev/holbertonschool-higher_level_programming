@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #This code write 5 times Best School
 count=0
-while [[ $count -lt 10 ]]; do
+while [[ $count -gt 10 ]]; do
 	echo "Best School"
 	((count++))
 done
