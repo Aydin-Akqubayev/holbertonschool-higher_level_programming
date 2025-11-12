@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#This script teach me how to write if elif else
 count=1
 while [[ $count -le 10 ]]; do
 	if [[ $count -eq 4 ]]; then
