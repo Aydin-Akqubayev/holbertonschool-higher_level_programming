@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
-#Testing
-if [[ $1 == "start" ]]; then
-	./manage_my_process &
-	echo "manage_my_process started"
-elif [[ $1 == "stop" ]]; then
-	kill -9 "$(cat /var/run/my_process.pid)"
-	rm -rf /var/run/my_process.pid
-	echo "manage_my_process stopped"
-	
-elif [[ $1 == "restart" ]]; then
-	kill -9 "$(cat /var/run/my_process.pid)"
-	rm -rf /var/run/my_process.pid
-	./manage_my_process &
-	echo "manage_my_process restarted"
-else
-	echo "Usage: manage_my_process {start|stop|restart}"
+# Testing
 
+# Write the PID of the background process to the PID file
+if [[ $1 == "start" ]]; then
+    ./manage_my_process &  # Start the process in the background
+    echo $! > /var/run/my_process.pid  # Save the background process PID to the file
+    echo "manage_my_process started"
+elif [[ $1 == "stop" ]]; then
+    kill -9 "$(cat /var/run/my_process.pid)"  # Stop the process using the PID
+    rm -rf /var/run/my_process.pid  # Remove the PID file
+    echo "manage_my_process stopped"
+elif [[ $1 == "restart" ]]; then
+    kill -9 "$(cat /var/run/my_process.pid)"  # Kill the existing process
+    rm -rf /var/run/my_process.pid  # Remove the PID file
+    ./manage_my_process &  # Restart the process in the background
+    echo $! > /var/run/my_process.pid  # Write the new PID to the file
+    echo "manage_my_process restarted"
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
 fi
+
