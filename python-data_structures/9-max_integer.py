@@ -8,9 +8,10 @@ def compare(a, b):
 
 
 def max_integer(my_list):
-    a = 0
     if len(my_list) == 0:
         return None
-    for i in my_list:
-        a = compare(a, i)
+    for i in range(len(my_list)):
+        if i == 0:
+            a = my_list[i]-1
+        a = compare(a, my_list[i])
     return a
