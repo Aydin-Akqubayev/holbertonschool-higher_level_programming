@@ -8,5 +8,5 @@ def save_to_json_file(my_list, text):
 
     '''Practice json file '''
 
-    with open(text, 'a') as file:
+    with open(text, 'w') as file:
         file.write(json.dumps(my_list))
