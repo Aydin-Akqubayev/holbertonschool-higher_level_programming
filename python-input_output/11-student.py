@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 '''This is 11 question'''
 
+
 class Student:
+
     '''Practice class'''
 
     def __init__(self, first_name, last_name, age):
@@ -10,7 +12,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        
+
         if attrs is None:
             return self.__dict__
         else:
