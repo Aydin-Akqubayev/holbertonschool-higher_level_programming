@@ -23,7 +23,6 @@ class Student:
             return test
 
     def reload_from_json(self, json):
-        for key in self.__dict__:
-            for key2 in json:
-                if key == key2:
-                    self.__dict__[key] == json[key]
+        self.first_name = json.get('first_name', 'J')
+        self.last_name = json.get('last_name', 'S')
+        self.age = json.get('age', 1)
