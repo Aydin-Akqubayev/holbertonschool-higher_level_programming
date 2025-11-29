@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''This code generates Pascal's triangle'''
 
 
 def pascal_triangle(num):
