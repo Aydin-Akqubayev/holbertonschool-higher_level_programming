@@ -1,2 +1,2 @@
---This is test
-show databases;
+-- This script
+SHOW DATABASES;
