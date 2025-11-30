@@ -10,7 +10,7 @@ def convert_csv_to_json(csv_file):
         with open(csv_file, "r", newline="") as f:
             r = list(csv.DictReader(f))
         with open("data.json", "w") as f:
-            json.dump(r, f, indent=4)
+            json.dump(r, f, indent=2)
         return True
     except Exception:
         return False
