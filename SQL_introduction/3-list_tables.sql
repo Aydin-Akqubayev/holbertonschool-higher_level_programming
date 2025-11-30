@@ -1,2 +1,2 @@
--- List all thing in mysql
+-- ts is a comment
 SHOW TABLES;
