@@ -2,32 +2,35 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 
-class PostHandler(BaseHTTPRequestHandler):
-    def do_POST(self):
-        # Get length of posted data
-        content_length = int(self.headers.get('Content-Length', 0))
+class RequestHandler(BaseHTTPRequestHandler):
 
-        # Read data and decode it
-        post_data = self.rfile.read(content_length).decode('utf-8')
-
-        # Parse parameters into a dict
-        params = dict(urllib.parse.parse_qsl(post_data))
-        email = params.get("email", "")
-
-        # Build the response
-        response = f"Email: {email}"
-
-        # Send headers
+    def do_GET(self):
+        """Handle GET requests"""
+        response = "This server is running and ready to receive GET requests!"
+        
         self.send_response(200)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
+        self.wfile.write(response.encode("utf-8"))
 
-        # Send response body
-        self.wfile.write(response.encode('utf-8'))
+    def do_POST(self):
+        """Handle POST requests for /post_email endpoint"""
+        content_length = int(self.headers.get("Content-Length", 0))
+        post_data = self.rfile.read(content_length).decode("utf-8")
+
+        # Parse parameters
+        params = dict(urllib.parse.parse_qsl(post_data))
+        email = params.get("email", "")
+
+        response = f"Email: {email}"
+
+        self.send_response(200)
+        self.send_header("Content-type", "text/plain")
+        self.end_headers()
+        self.wfile.write(response.encode("utf-8"))
 
 if __name__ == "__main__":
-    server_address = ('0.0.0.0', 5000)
-    httpd = HTTPServer(server_address, PostHandler)
-    print("Server running on port 5000…")
+    server_address = ("0.0.0.0", 5000)
+    httpd = HTTPServer(server_address, RequestHandler)
+    print("Server running on http://0.0.0.0:5000 …")
     httpd.serve_forever()
-
