@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Practicing api post request"""
+"""Practicing api post request new"""
 
 import requests
 import sys
@@ -11,9 +11,10 @@ def main(q="", url="http://0.0.0.0:5000/search_user"):
     except IndexError:
         pass
     data = {"q": q}
-    req = requests.post(url=url, data=data)
-    req_json = req.json()
+
     try:
+        req = requests.post(url=url, data=data)
+        req_json = req.json()
         print(f'[{req_json['id']}] {req_json['name']}')
     except Exception:
         print("No result")
