@@ -5,12 +5,18 @@
 import requests
 import sys
 
-url = sys.argv[1]
-email_addr = sys.argv[2]
 
-data = {
-    "email": email_addr
-}
+def main():
+    url = sys.argv[1]
+    email_addr = sys.argv[2]
 
-response = requests.post(url, data=data)
-print(response.text)
+    data = {
+        "email": email_addr
+    }
+
+    response = requests.post(url, data=data)
+    print(response.text)
+
+
+if __name__ == '__main__':
+    main()
