@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Practicing api post request"""
 
 import requests
 import sys
