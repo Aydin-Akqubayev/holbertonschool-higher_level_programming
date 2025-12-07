@@ -6,6 +6,7 @@ import csv
 def fetch_and_print_posts():
     url = "https://jsonplaceholder.typicode.com/posts"
     req = requests.get(url)
+    print(f'Status Code: {req.status_code}')
     if req.status_code == 200:
         data = req.json()
         for i in data:
@@ -26,7 +27,7 @@ def fetch_and_save_posts():
             res['body'] = i.get('body')
             filter_json.append(res)
             res = {}
-        with open("posts.csv", 'w') as file:
+        with open("posts.csv", 'w', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=fieldname)
             writer.writeheader()
             writer.writerows(filter_json)
