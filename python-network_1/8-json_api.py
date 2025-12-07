@@ -22,7 +22,7 @@ def main(q="", url="http://0.0.0.0:5000/search_user"):
         if not req_json:
             print('No result')
         else:
-            print(f'[{req_json['id']}] {req_json['name']}')
+            print(f"[{req_json['id']}] {req_json['name']}")
 
 
 if __name__ == "__main__":
