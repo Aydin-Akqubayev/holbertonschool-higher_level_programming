@@ -2,7 +2,6 @@
 
 import requests
 import sys
-import json
 
 
 def main(q="", url="http://0.0.0.0:5000/search_user"):
